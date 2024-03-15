@@ -1,0 +1,57 @@
+JUHEND
+------
+Loo tkinter'iga vorm (rakendus), kus on Entry, Button (2 tk), Text või Treeview (Tabel)
+ja Scrollbar. Tegemist on faili seest info otsimisega ja tulemuse näitamisega. Fail 
+avatakse dialogi aknaga (kasutaja saab ise valida) mitte ei kirjutata koodi.
+
+Entry 				- on tekstiotsingu kast
+Button 				- on otsingu teostamise nupp
+Button 				- on txt faili avamiseks nupp (mõelge Word/Excel/PP Open nupule)
+Text või Treeview 	- on otsingu tulemuse näitamiseks
+Scrollbar 			- Text ja TreeView horisontaalne ja/või vertikaalseks kerimiseks
+
+Otsingu tulemuseks tuleb näidata kogu infot failist (rida). Text puhul nii nagu 
+failis, TreeView puhul iga veerg eraldi (tabel). Text variandis võib kasutada ka 
+"joondamist" tabelina (iga vastuse veeru laius on kõige pikema vastuse alusel).
+Kogu lahendus on MVC (Mudel-View-Controller). 
+
+Text vastuse kastis on kirjastiiliga Courier, Treeview puhul Verdana.
+Kui fail on avatud, siis iga otsingu jaoks samast failist ei tohi uuesti faili
+avada.
+
+Kui kavatsed mingeid lisa mooduleid paigaldada (neid pole vaja), siis tuleb 
+käsureal (projekti juurkaustas) anda käsklus "pip freeze > requirements.txt" 
+ilma jutumärkideta, kui paketid on paigaldatud. See fail sisaldab lisa pakette 
+mida on vaja rakenduse käivitamiseks. 
+
+HINDAMINE
+---------
+"3" - Otsingu lahendus töötab korrektselt. Fail kust otsida saab avada dialogi 
+	aknaga. Tulemusi näidatakse Text aknas üks kahest variandis (vaata eespool).
+"4" - Sama nagu eelmine ("3"), kuid sisaldab vähemalt 3 lisa funktsionaalsust, 
+	millest on ka kasu/abi. Vastust näidatakse Text aknas joondamise variant. 
+	Kõik kellad-viled pole funktsionaalsus.
+"5" - Sama nagu eelmine ("4"), kuid vastus on ilusas tabelis (TreeView). 
+
+Hilinemine tähendab, et hindest võetakse üks maha. Hilinemine on hilinemine.
+
+TÄHTAEG
+-------
+16.03.2024 kell 12:00
+
+FAILID
+------
+Ülesanne peab toimima mõlema failiga.
+Persons.csv
+Persons_Big.csv
+
+
+LINGID
+------
+DIALOG - https://www.w3resource.com/python-exercises/tkinter/python-tkinter-dialogs-and-file-handling-exercise-3.php
+DIALOG - https://docs.python.org/3/library/dialog.html
+DIALOG - https://www.pythontutorial.net/tkinter/tkinter-open-file-dialog/
+DIALOG - https://stackoverflow.com/questions/3579568/choosing-a-file-in-python-with-simple-dialog
+
+PADDING - https://www.geeksforgeeks.org/add-padding-to-a-string-in-python/
+PADDING - https://stackabuse.com/padding-strings-in-python/
