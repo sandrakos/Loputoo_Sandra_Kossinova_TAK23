@@ -4,7 +4,6 @@ from tkinter import ttk
 import csv
 import os
 
-
 class View:
     def __init__(self, app, kontroller):
         self.app = app
@@ -28,6 +27,14 @@ class View:
         # Nupp et otsida
         self.otsing_nupp = tk.Button(self.app, text="Otsi", command=lambda: self.teosta_otsing())
         self.otsing_nupp.pack()
+
+        # Tulemuste arvu kuvamine
+        self.tulemuste_arv_silt = tk.Label(self.app, text="")
+        self.tulemuste_arv_silt.pack()
+
+        # Otsingu tühjendamise nupp
+        self.otsingu_tuhjendamise_nupp = tk.Button(self.app, text="Tühjenda otsing", command=self.tuhjenda_otsing)
+        self.otsingu_tuhjendamise_nupp.pack()
 
         # Treeview tulemuste kuvamiseks
         self.tulemused_tree = ttk.Treeview(self.app)
@@ -65,17 +72,24 @@ class View:
             print("Faili valimine tühistati.")
 
     def kuva_tulemus(self, tulemus):
-        # Kuvage tulemus Treeview'is
+        # Kuvame tulemust Treeviewis
         self.tulemused_tree.insert('', 'end', values=tulemus)
+        # Uuendame tulemuste arvu
+        self.tulemuste_arv_silt.config(text="Tulemused: " + str(len(self.tulemused_tree.get_children())))
 
     def kuva_sonum(self, sonum):
-        # Kuva sõnum vaates (nt dialoogiboksis)
         tk.messagebox.showinfo("Teade", sonum)
 
     def tuhjenda_tulemused(self):
-        # Tühjendage tulemused Treeview'st
+        # Tühjendame tulemused Treeviewist
         for i in self.tulemused_tree.get_children():
             self.tulemused_tree.delete(i)
+        # Tulemuste arvu uuendus
+        self.tulemuste_arv_silt.config(text="")
+
+    def tuhjenda_otsing(self):
+        # Tühjenda otsingu väli
+        self.otsing_entry.delete(0, 'end')
 
     def loe_csv_tulbad(self, faili_tee):
         # Loeme CSV faili esimese rea tulbad
